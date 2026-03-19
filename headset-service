@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headset Service Guide — 1997 Kona Kula</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --bg:        #0f0f0f;
+  --surface:   #1a1a1a;
+  --surface2:  #222222;
+  --border:    #2e2e2e;
+  --accent:    #c0392b;   /* Rover Nightfire Red */
+  --accent2:   #e74c3c;
+  --text:      #e8e8e8;
+  --muted:     #888;
+  --mono:      'IBM Plex Mono', monospace;
+  --sans:      'IBM Plex Sans', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brand-title {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+.brand-sub {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.back-link {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--text); border-color: var(--muted); }
+
+/* ── NAV TABS (decorative, matching site style) ── */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav-tab {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0.7rem 1.1rem;
+  border-bottom: 2px solid transparent;
+  cursor: default;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+.nav-tab.active {
+  color: var(--accent2);
+  border-bottom-color: var(--accent);
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+/* ── PAGE TITLE ── */
+.page-title {
+  margin-bottom: 2rem;
+}
+.page-title h1 {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.page-title p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── TOOLS CARD ── */
+.tools-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2.5rem;
+}
+.tools-card h2 {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.6rem;
+}
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.tool-item::before {
+  content: '→';
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* ── HOW IT WORKS ── */
+.explainer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2.5rem;
+}
+.explainer h2 {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.explainer p { font-size: 0.92rem; color: var(--text); }
+
+/* ── STEPS ── */
+.steps-heading {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 1.5rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 42px;
+  bottom: -1.6rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent2);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.step-header {
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.step-title {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.step-badge {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-high { background: rgba(192,57,43,0.2); color: #e74c3c; border: 1px solid rgba(192,57,43,0.4); }
+.badge-med  { background: rgba(211,84,0,0.2);  color: #e67e22; border: 1px solid rgba(211,84,0,0.4); }
+.badge-info { background: rgba(52,152,219,0.15); color: #5dade2; border: 1px solid rgba(52,152,219,0.3); }
+
+.step-content {
+  padding: 1rem 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.step-content.full { grid-template-columns: 1fr; }
+
+.step-text p {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+.step-text p:last-child { margin-bottom: 0; }
+
+.step-note {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.7rem;
+}
+.step-note strong { color: var(--text); }
+
+.step-img {
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+}
+.img-placeholder .icon { font-size: 1.8rem; opacity: 0.4; }
+
+/* ── PARTS ORDER ── */
+.parts-order {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.8rem 0;
+}
+.part-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+.part-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.part-name { color: var(--text); }
+.part-note { color: var(--muted); font-size: 0.8rem; font-style: italic; }
+
+/* ── WARNINGS ── */
+.warnings {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+.warnings-header {
+  background: rgba(192,57,43,0.15);
+  border-bottom: 1px solid rgba(192,57,43,0.3);
+  padding: 0.8rem 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent2);
+  text-transform: uppercase;
+}
+.warnings-body { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.warn-item {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+}
+.warn-icon { color: var(--accent2); flex-shrink: 0; margin-top: 2px; }
+.warn-text { color: var(--text); }
+.warn-text strong { color: var(--accent2); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .step-content { grid-template-columns: 1fr; }
+  .step-img { display: none; }
+  .tools-grid { grid-template-columns: 1fr 1fr; }
+  main { padding: 1.5rem 1rem 3rem; }
+  header, nav { padding: 0 1rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-title">KONA KULA</span>
+      <span class="brand-sub">1997 · Restoration Project</span>
+    </div>
+    <a href="index.html" class="back-link">← Back to Log</a>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-tab">Overview</div>
+    <div class="nav-tab">Components</div>
+    <div class="nav-tab">Task List</div>
+    <div class="nav-tab">Work Log</div>
+    <div class="nav-tab active">Guides</div>
+    <div class="nav-tab">Specs &amp; Info</div>
+    <div class="nav-tab">Budget</div>
+    <div class="nav-tab">📷 Photos</div>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-title">
+    <h1><span class="tag">GUIDE</span> Threadless Headset Service</h1>
+    <p>Dia-Compe Aheadset ALC · 1⅛" threadless · Marzocchi Z2 Bomber fork</p>
+  </div>
+
+  <!-- Tools -->
+
+  <div class="tools-card">
+    <h2>Tools &amp; Materials</h2>
+    <div class="tools-grid">
+      <div class="tool-item">5mm allen key</div>
+      <div class="tool-item">6mm allen key</div>
+      <div class="tool-item">Park Tool grease</div>
+      <div class="tool-item">Degreaser</div>
+      <div class="tool-item">Clean rags</div>
+      <div class="tool-item">Rubber mallet (optional)</div>
+      <div class="tool-item">Small pick / screwdriver</div>
+      <div class="tool-item">Torque wrench (optional)</div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+
+  <div class="explainer">
+    <h2>How a Threadless Headset Works</h2>
+    <p>Unlike a threaded headset, there is no adjustable cup screwing onto the steerer tube. Instead, the <strong>stem clamps onto the outside of the steerer</strong>, and a <strong>top cap and bolt</strong> pull the fork upward to compress and set the bearing preload. The stem pinch bolts then lock everything in place. Adjustment and locking are two separate actions.</p>
+  </div>
+
+  <!-- Steps -->
+
+  <div class="steps-heading">Service Procedure — 7 Steps</div>
+
+  <!-- Step 1 -->
+
+  <div class="step">
+    <div class="step-num">01</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Loosen the stem</span>
+        <span class="step-badge badge-high">START HERE</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Loosen the <strong>stem pinch bolts</strong> on the side of the stem — do not remove them fully, just enough to free the stem from the steerer. Then undo the <strong>top cap bolt</strong> in the centre of the top cap (usually 5mm or 6mm allen).</p>
+          <p>Hold the fork with your other hand before removing the top cap — once it's off, the fork will drop free.</p>
+          <div class="step-note"><strong>Tip:</strong> Mark the stem orientation with tape before removal so it goes back in the same position.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">🔧</div>
+            <span>Add photo: top cap bolt removal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+
+  <div class="step">
+    <div class="step-num">02</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Remove fork and lay parts out in order</span>
+        <span class="step-badge badge-high">CRITICAL</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Slide the stem and any spacers off the steerer, keeping them in sequence. Then pull the Marzocchi Z2 Bomber fork down and out of the head tube — catch the <strong>upper bearings</strong> as the fork drops.</p>
+          <p>Lay all parts out left-to-right in the order they came off:</p>
+          <div class="parts-order">
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Top cap</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Stem</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Spacers</span><span class="part-note">&nbsp;— note order</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Upper bearing / race</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Upper cup</span><span class="part-note">&nbsp;— pressed in, do not remove</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Lower cup</span><span class="part-note">&nbsp;— pressed in, do not remove</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Lower bearing / race</span></div>
+            <div class="part-row"><div class="part-dot"></div><span class="part-name">Crown race</span><span class="part-note">&nbsp;— on fork crown, do not remove</span></div>
+          </div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">📷</div>
+            <span>Add photo: parts laid out in order</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+
+  <div class="step">
+    <div class="step-num">03</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Clean and inspect bearing races</span>
+        <span class="step-badge badge-high">INSPECT</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Degrease all metal parts. Inspect the bearing races — the polished tracks inside the cups — for <strong>pitting, grooves, or roughness</strong>. Run your fingernail across the surface. Smooth is good; any pitting means replacement, not just regreasing.</p>
+          <p>The Dia-Compe Aheadset ALC likely uses <strong>cartridge bearings</strong> — sealed units you cannot repack. Check they spin smoothly. If gritty or notchy, replace them; they are inexpensive and sized by their dimensions (measure outer diameter, inner diameter, width).</p>
+          <div class="step-note"><strong>On the Z2 Bomber:</strong> Inspect the steerer tube around the stem clamp area for hairline cracks before reassembling. Alloy cracks rather than bends.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">🔍</div>
+            <span>Add photo: bearing race inspection</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+
+  <div class="step">
+    <div class="step-num">04</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Grease bearing surfaces</span>
+        <span class="step-badge badge-med">GREASE</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>If bearings are <strong>loose balls or caged</strong>: pack fresh grease generously into the cups and coat all bearing surfaces. Be thorough — excess grease gets pushed out; too little causes wear.</p>
+          <p>If bearings are <strong>cartridge type</strong>: wipe a thin layer of grease on the outside surfaces where they seat into the cups, and around the crown race contact surface. Do not pack the inside of sealed cartridges.</p>
+          <div class="step-note"><strong>Use:</strong> Park Tool PolyLube or equivalent. Avoid chain lube — it is too thin for bearings.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">📷</div>
+            <span>Add photo: greasing crown race</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+
+  <div class="step">
+    <div class="step-num">05</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Reassemble</span>
+        <span class="step-badge badge-med">ASSEMBLY</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Work from the bottom up:</p>
+          <p>1. Set the lower bearing onto the crown race on the fork.<br>
+          2. Slide the fork back up through the head tube.<br>
+          3. Set the upper bearing into the upper cup.<br>
+          4. Slide spacers back on in the correct order.<br>
+          5. Refit the stem — <strong>do not tighten the pinch bolts yet</strong>.<br>
+          6. Thread the top cap back on by hand until it just touches.</p>
+          <div class="step-note"><strong>Check:</strong> There must be a 1–2mm gap between the top of the steerer tube and the underside of the top cap. The cap must push down on the stem or spacer, not bottom out on the steerer — otherwise the adjustment cannot work.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">📷</div>
+            <span>Add photo: steerer gap check</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+
+  <div class="step">
+    <div class="step-num">06</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Set preload — the critical adjustment</span>
+        <span class="step-badge badge-high">CRITICAL</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Tighten the <strong>top cap bolt</strong> gradually — it pulls the fork upward, compressing the bearings. Go slowly, a quarter-turn at a time.</p>
+          <p><strong>Check for play:</strong> Squeeze the front brake and rock the bike fore-and-aft. You should feel nothing — no clunk or movement.</p>
+          <p><strong>Check for binding:</strong> Lift the front wheel and let the bars fall to one side. They should swing freely under gravity alone.</p>
+          <p>If it clunks → tighten slightly. If it binds → loosen slightly. It usually takes two or three attempts.</p>
+          <div class="step-note"><strong>Important:</strong> The top cap bolt only needs to be snug — not cranked hard. Overtightening damages alloy steerers and bearings. Once preload is correct, move to step 7.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">📷</div>
+            <span>Add photo: play check (brake + rock)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 7 -->
+
+  <div class="step">
+    <div class="step-num">07</div>
+    <div class="step-body">
+      <div class="step-header">
+        <span class="step-title">Lock the stem and verify</span>
+        <span class="step-badge badge-med">FINAL</span>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <p>Align the stem with the front wheel. Tighten the <strong>stem pinch bolts</strong> to the correct torque — usually <strong>4–6 Nm</strong>. If your stem has two pinch bolts, tighten them evenly, alternating between them.</p>
+          <p>Do a final check: apply the front brake, rock the bike — no play. Lift the front wheel, let bars fall — swings freely. Squeeze the stem firmly and twist — it should not rotate on the steerer.</p>
+          <div class="step-note"><strong>Done.</strong> Re-check after the first ride — cables and bearings settle slightly, and it is worth verifying there is still no play after break-in.</div>
+        </div>
+        <div class="step-img">
+          <div class="img-placeholder">
+            <div class="icon">✓</div>
+            <span>Add photo: finished assembly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warnings specific to this bike -->
+
+  <div class="warnings">
+    <div class="warnings-header">⚠ Kula-Specific Notes</div>
+    <div class="warnings-body">
+      <div class="warn-item">
+        <span class="warn-icon">▸</span>
+        <span class="warn-text"><strong>Alloy steerer (Marzocchi Z2 Bomber):</strong> Inspect carefully around the stem clamp area for hairline cracks. Aluminium cracks without warning — do not ride if any are found.</span>
+      </div>
+      <div class="warn-item">
+        <span class="warn-icon">▸</span>
+        <span class="warn-text"><strong>Crown race:</strong> The crown race is pressed onto the fork crown. If pitted or corroded, it needs a dedicated crown race puller to remove without damaging the alloy fork crown. Do not lever it off.</span>
+      </div>
+      <div class="warn-item">
+        <span class="warn-icon">▸</span>
+        <span class="warn-text"><strong>Pressed cups:</strong> The upper and lower cups are pressed into the aluminium head tube. Do not attempt to remove them unless replacing — use a proper headset press and cup remover to avoid damage.</span>
+      </div>
+      <div class="warn-item">
+        <span class="warn-icon">▸</span>
+        <span class="warn-text"><strong>Original bearings (1997):</strong> These bearings are nearly 30 years old. Even if they look acceptable, replacement is strongly recommended — cartridge bearing sets for this headset are inexpensive.</span>
+      </div>
+      <div class="warn-item">
+        <span class="warn-icon">▸</span>
+        <span class="warn-text"><strong>Site correction:</strong> The Specs page incorrectly lists this as a threaded headset. It is confirmed <strong>threadless (Dia-Compe Aheadset ALC)</strong> per the 1997 Kona catalogue. The component registry entry is correct.</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  1997 Kona Kula — Restoration Log · Headset Service Guide · Dia-Compe Aheadset ALC
+</footer>
+
+</body>
+</html>
